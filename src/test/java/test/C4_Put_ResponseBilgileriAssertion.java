@@ -47,7 +47,7 @@ public class C4_Put_ResponseBilgileriAssertion {//response temel bilgilerini ass
 
         //PUT request update işlemi yapar (70 id var, bir tanesini güncellemiş oluruz)
 
-        JSONObject reqBody = new JSONObject();
+        JSONObject reqBody = new JSONObject();//body hazırlayıp göndermek için JSON objesi oluşturulur
 
         reqBody.put("title", "Ahmet");
         reqBody.put("body", "Merhaba");
