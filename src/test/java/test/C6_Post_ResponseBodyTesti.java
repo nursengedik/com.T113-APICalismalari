@@ -56,10 +56,10 @@ public class C6_Post_ResponseBodyTesti {//POST REQUEST BODY BILGILERINI ASSERT Y
         //3- Response'i kaydet (API'Yİ çalıştırdığımız adım)
 
         Response response = given()
-                                  .contentType(ContentType.JSON)//post'ta body oluşturacağımız için
-                            .when()
-                                  .body(reqBody.toString())
-                            .post(url);
+                                  .contentType(ContentType.JSON)//post'ta body oluşturacağımız için given'dan
+                            .when()                             //sonra content type yazılır
+                                  .body(reqBody.toString())//body miz Json olarak hazırlansa da kodlarımız
+                            .post(url);                   //java ile çalışacağı için toString ile javaya çevrilir
 
 
 
