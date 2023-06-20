@@ -36,6 +36,7 @@ public class C01_Get_ApiSorgulama {//manuel test
 
         Response response =given().when().get(url);//dönen respon'sı objeye kaydettik
         //eğer respon'sı görmek istersek response objesini kullanarak yazdırırız
+        //given() methodunu static method olarak import ederiz
         response.prettyPrint();//yazdırmazsak hiçbir şey dönmez, yazdırma methodlarını testlerimizi
         //hazırlarken oluşturur sonra yoruma alırız çünkü yazdırma teste ağır yük bindirir
 
