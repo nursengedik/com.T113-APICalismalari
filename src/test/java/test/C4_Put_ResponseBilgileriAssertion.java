@@ -64,11 +64,11 @@ public class C4_Put_ResponseBilgileriAssertion {//response temel bilgilerini ass
 
         //manuel Api sorgusunda yaptığımız adımları burada kodlarla otomatik olarak yapıyoruz
         Response response = given()
-                                  .contentType(ContentType.JSON)
+                                  .contentType(ContentType.JSON)//önce body'mizin içerik dilini belirtiriz
                             .when()
-                                  .body(reqBody.toString())
-                                  .put(url);
-        response.prettyPrint();//response'ı çalıştırdığımızda dönen response'ı kaydetmek için
+                                  .body(reqBody.toString())//kodlarımız java ile çalıştığı için toString ile
+                                  .put(url);              //javaya çevirir göndeririz
+        response.prettyPrint();//response'ı yazdırırız, çalıştırdığımızda dönen response'ı kaydetmek için
 
         /*
 

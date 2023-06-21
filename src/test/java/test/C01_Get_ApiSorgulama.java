@@ -18,10 +18,11 @@ public class C01_Get_ApiSorgulama {//manuel test
               ve response suresinin 5 sn’den kisa oldugunu manuel olarak test ediniz.
    */
 
-    //1- Göndereceğimiz Request için gerekli olan URL ve ihtiyacımız varsa Request Body hazırla
+    //1- Göndereceğimiz Request için gerekli olan URL ve ihtiyacımız varsa Request Body (Json formatında)hazırla
     //2- Eğer soruda bize verilmişse Expected Data hazırla
     //3- Bize dönen Response'i Actual Data olarak kaydet
-    //4- Expected Data ile Actual Datayı karşılaştırmamız yani Assertion yapmamız gerek
+    //Dönen response görüp üzerinde işlem yapabilmek için, assertion yapabilmek için response kaydediyoruz
+    //4- Expected Data ile Actual Datayı karşılaştırmamız yani Assertion yapmamız gerek (test yaptığımız adım)
 
     @Test
     public void get01(){
