@@ -142,24 +142,35 @@ public class C08_JSONObjectVerileriCagirma {
                         ]
           }
          */
+
         //path = yol
         //https://jsonpath.com
 
-        //karmaşık Json objesi içindeki bilgileri yazdırma
+        //karmaşık Json objesi içindeki verileri yazdırma
         System.out.println("Isim : " + kisiBilgisi.get("firstName"));
         System.out.println("Soyisim : " + kisiBilgisi.get("lastName"));
         System.out.println("Yas : " + kisiBilgisi.get("age"));
+
+        //System.out.println("Adres : " + kisiBilgisi.get("address")); adres bilgilerinin tamamını getirir
+        //address'in içindeki verilere ulaşmak için önce address json objesini getJSONObject() ile sonra
+        //ulaşmak istediğimiz bilgiyi address json objesinin içinden getJSONObject().get() ile çağırırız
         System.out.println("Sokak adi : " + kisiBilgisi.getJSONObject("address").get("streetAddress"));
         System.out.println("Sehir : " + kisiBilgisi.getJSONObject("address").get("city"));
         System.out.println("Posta kodu : " + kisiBilgisi.getJSONObject("address").get("postalCode"));
+
+        //Json array'i içindeki verilere ulaşma
+        //System.out.println("Telefon Numarası : " + kisiBilgisi.get("phoneNumbers"));telefon numaralarının
+        //tamamını getirir, array içindeki belli index'teki belli key'in değerine ulaşmak için
         System.out.println("Tel no : " + kisiBilgisi
+                //phoneNumbers'i çağırma .getJSONArray("phoneNumbers")
                 .getJSONArray("phoneNumbers")
+                //içindeki bilgilere ulaşmak için index'leri ile birlikte çağrılır
                 .getJSONObject(0)
-                .get("number"));
+                .get("number"));//numarayı döndürür
         System.out.println("Tel turu : " + kisiBilgisi
                 .getJSONArray("phoneNumbers")
                 .getJSONObject(0)
-                .get("type"));
+                .get("type"));//telefon türünü döndürür
         System.out.println("Tel no : " + kisiBilgisi
                 .getJSONArray("phoneNumbers")
                 .getJSONObject(1)
