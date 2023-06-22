@@ -36,6 +36,8 @@ public class C4_Put_ResponseBilgileriAssertion {//response temel bilgilerini ass
 
         String url = "https://jsonplaceholder.typicode.com/posts/70";
 
+        //3P'de (Put, Post ve Patch) body hazırlamak zorunludur
+
         /* body hazırlama
             {
               "title": "Ahmet",

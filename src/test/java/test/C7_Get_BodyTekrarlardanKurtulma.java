@@ -67,7 +67,7 @@ public class C7_Get_BodyTekrarlardanKurtulma {
                               "additionalneeds", Matchers.equalTo("Breakfast"));
 
          //her bir key ve value değeri için ayrı ayrı body() methodunu yazmayıp hepsini
-        //aynı body() methodnun içerisine yazacağız
+        //aynı body() methodunun içerisine yazacağız
         */
 
         response

@@ -4,7 +4,11 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 import org.junit.Test;
 
-public class C08_JSONObjectVerileriCagirma {
+public class C08_JSONObjectVerileriCagirma {//request body testi (dönen response body testi değil)
+
+    //burada JsonObject ve JsonArray kullanarak objeler oluşturduk ve
+    //içindeki verilere get(), getJSONObject() ve getJSONArray()
+    //methodlarını kullanarak ulaştık, javadaki yolumuz bu, biraz uzun
 
    /*
         JSONPath JSON verilerini okuma ve update etme fırsatı verir.
@@ -161,6 +165,7 @@ public class C08_JSONObjectVerileriCagirma {
         //Json array'i içindeki verilere ulaşma
         //System.out.println("Telefon Numarası : " + kisiBilgisi.get("phoneNumbers"));telefon numaralarının
         //tamamını getirir, array içindeki belli index'teki belli key'in değerine ulaşmak için
+        //.getJSONArray("phoneNumbers").getJSONObject(index).get("number")
         System.out.println("Tel no : " + kisiBilgisi
                 //phoneNumbers'i çağırma .getJSONArray("phoneNumbers")
                 .getJSONArray("phoneNumbers")
