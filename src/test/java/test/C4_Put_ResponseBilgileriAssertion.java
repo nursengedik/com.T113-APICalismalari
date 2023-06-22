@@ -59,7 +59,7 @@ public class C4_Put_ResponseBilgileriAssertion {//response temel bilgilerini ass
         //2- Expected Data hazırla (soruda expected data yok, bizden response'ın temel bilgilerini test etmemiz
         //isteniyor)
 
-        //3- Response'i kaydet
+        //3- Response'i (rispans) kaydet
 
         //NOT: Eğer sorgumuzda bir request body gönderiyorsak gönderdiğimiz datanın formatını belirtmek
         //zorundayız. Bunu da hemen given() methodundan sonra pre-condition olarak belirtebiliriz.

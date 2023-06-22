@@ -30,7 +30,7 @@ public class C02_Get_ResponseBilgileriAssertion {//otomasyon test
 
         //2- Expected Data hazırla
 
-        //3- Response kaydet
+        //3- Response (rispans) kaydet
         Response response = given().when().get(url);
         //dönen response'sı görmek istersek
         response.prettyPrint();//normalde api sorgularında response yazdırma satırı yoruma alınır

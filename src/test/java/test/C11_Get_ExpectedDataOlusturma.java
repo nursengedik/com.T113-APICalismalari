@@ -9,7 +9,7 @@ import org.junit.Test;
 import static io.restassured.RestAssured.given;
 import static org.junit.Assert.assertEquals;
 
-public class C11_Get_ExpectedDataOlusturma {
+public class C11_Get_ExpectedDataOlusturma {//JUnit ASSERT
 
     /*
       https://jsonplaceholder.typicode.com/posts/22 url'ine
@@ -56,8 +56,16 @@ public class C11_Get_ExpectedDataOlusturma {
         //konsolda iki çıktı olacak expected data ve response
 
         // 4 - Assertion
+        //şimdiye kadar response üzerinden jsonPath'i kullanarak assert işlemlerimizi yapıyorduk
+        //burada JUnit ile assert işlemlerimizi yapacağız ve assertTrue(), assertFalse() ve assertEquals()
+        //kullanacağız, daha çok assertEquals() methodunu kullanacağız
+        //dönen response değerimiz her ne kadar Json formatında dönse de Response objesinin bize döndürdüğü
+        //body değerlerini biz direk olarak kullanamıyoruz,bunun için dönen response body'sini kullanılabilecek
+        //methodlarla dönüştürmemiz gerekiyor, Json obje gibi direk değerlendiremiyoruz
+        //response body'sinin içindeki verilere ulaşabilmek için öncelikle onun formatını sorgulanabilir,
+        //uyarlanabilir hale getirmemiz gerekir
 
-        JsonPath respJP = response.jsonPath();
+        JsonPath respJP = response.jsonPath();//dönen response JsonPath'e dönüştürüp kaydeder
 
         assertEquals(expData.get("userId"), respJP.get("userId"));
         assertEquals(expData.get("id"), respJP.get("id"));

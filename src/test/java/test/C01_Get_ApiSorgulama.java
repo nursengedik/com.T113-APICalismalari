@@ -27,7 +27,7 @@ public class C01_Get_ApiSorgulama {//manuel test
     @Test
     public void get01(){
 
-        //1- Göndereceğimiz Request için gerekli olan URL ve ihtiyacımız varsa Request Body hazırla
+        //1- Göndereceğimiz Request (rigrest) için gerekli olan URL ve ihtiyacımız varsa Request Body hazırla
 
         String url="https://restful-booker.herokuapp.com/booking/10";
 
@@ -36,7 +36,7 @@ public class C01_Get_ApiSorgulama {//manuel test
         //3- Bize dönen Response'i Actual Data olarak kaydet
 
         Response response =given().when().get(url);//dönen respon'sı objeye kaydettik
-        //eğer respon'sı görmek istersek response objesini kullanarak yazdırırız
+        //eğer response'ı (rispans) görmek istersek response objesini kullanarak yazdırırız
         //given() methodunu static method olarak import ederiz
         response.prettyPrint();//yazdırmazsak hiçbir şey dönmez, yazdırma methodlarını testlerimizi
         //hazırlarken oluşturur sonra yoruma alırız çünkü yazdırma teste ağır yük bindirir

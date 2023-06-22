@@ -40,6 +40,9 @@ public class C10_Get_ResponseBodyTestiListKullanimi {
 
         // 4 - Assertion
         //dönen response'nin temel bilgilerini response üzerinden test edebiliriz
+        //response objesi dönen response (rispans) sadece jsonPath formatında verebilir jsonObject olarak
+        //vermiyor, response'ın body değerlerini jsonPath olarak doğrulayabiliyoruz
+        //çünkü response jsonPath'i biliyor JsonObject'i bilmiyor
 
         response
                 .then()
