@@ -89,7 +89,7 @@ public class C09_Post_JsonPathIleBodyTesti {//dönen response body testi
 
         Response response = given()
                                   .contentType(ContentType.JSON)//body gönderdiğimizde content type belirtilir
-                                  .when()
+                            .when()
                                   .body(reqBody.toString())//body toString ile javaya çevrilir
                                   .post(url);//url'yi belirtip göndeririz
 

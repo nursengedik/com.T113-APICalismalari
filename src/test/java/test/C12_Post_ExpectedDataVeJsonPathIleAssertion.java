@@ -85,6 +85,8 @@ public class C12_Post_ExpectedDataVeJsonPathIleAssertion {
         reqBody.put("bookingdates" , bookingdates);//"bookingdates" key'inin değeri yukarıda oluşturulan
                                                   //bookingdates objesidir
 
+        //2- Expected Data hazırlama (Jsonobje olarak hazırlayacağız)
+
         /*
                    {
                     "bookingid":24,
@@ -103,24 +105,35 @@ public class C12_Post_ExpectedDataVeJsonPathIleAssertion {
                     }
          */
 
+        //expected datanın içi yukarıda hazırladığımız request body ile aynı olduğu için burada tekrar
+        //oluşturmuyoruz ve o objeleri burada kullanabiliyoruz
         JSONObject expData = new JSONObject();
 
-        expData.put("bookingid",24);
-        expData.put("booking", reqBody);
+        expData.put("bookingid",24);//body oluştururken "bookingid" oluşturulur ama "bookingid" test edilmez
+                                   //çünkü "bookingid" sistem otomatik olarak veriyor, atama yapıyor, biz de
+                                  //ön göremeyeceğimiz değeri test edemeyiz
+        expData.put("booking", reqBody);//"booking" değeri request body'de hazırladığımız reqBody objesidir
 
         // 3 - Response kaydet
 
-        Response response = given()
-                .contentType(ContentType.JSON)
-                .when()
-                .body(reqBody.toString())
-                .post(url);
+        Response response = given()                         //body gönderme durumunda formatımızı belirtmeliyiz
+                                 .contentType(ContentType.JSON)//request body hazırladığımız için
+                            .when()                           // pre conditions belirtmeliyiz
+                                 .body(reqBody.toString())//request body'i toString() ile dönüştürerek göndeririz
+                                 .post(url);
 
         response.prettyPrint();
 
         // 4 - Assertion
 
-        JsonPath respJP = response.jsonPath();
+        JsonPath respJP = response.jsonPath();//öncelikle response'ı test edebileceğimiz formata sokuyoruz
+                                             //yani jasonPath'e
+
+        //expected datamız jsonobject olduğu için .getJSONObject() methodu kullanılır
+        //expData.get("booking") bize booking'in tamamını getirir, booking'in içindeki değerleri test edebilmek
+        //için expData.getJSONObject("booking").get("firstname"),
+        //expected datada JsonObject'te methodlarla tek tek objelerin içerisine giriyoruz,
+        //actual datada jsonPath'de ise değere ulaşma yolu noktalardır respJP.get("booking.firstname")
 
         assertEquals(expData.getJSONObject("booking").get("firstname"), respJP.get("booking.firstname") );
         assertEquals(expData.getJSONObject("booking").get("lastname"), respJP.get("booking.lastname") );
