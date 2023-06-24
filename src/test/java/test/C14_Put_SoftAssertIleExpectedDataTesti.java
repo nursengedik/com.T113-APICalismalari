@@ -12,8 +12,8 @@ import static io.restassured.RestAssured.given;
 public class C14_Put_SoftAssertIleExpectedDataTesti {
 
      /*
-    https://dummy.restapiexample.com/api/v1/update/21 url’ine asagidaki
-    body’ye sahip bir PUT request gonderdigimizde donen response’un asagidaki gibi oldugunu test edin.
+       https://dummy.restapiexample.com/api/v1/update/21 url’ine asagidaki body’ye sahip
+       bir PUT request gonderdigimizde donen response’un asagidaki gibi oldugunu (expected data)  test edin.
 
             Request Body
             {
@@ -46,7 +46,7 @@ public class C14_Put_SoftAssertIleExpectedDataTesti {
     @Test
     public void put01(){
 
-        // 1 - Url ve Request Body hazirla
+        // 1 - Url ve Request Body hazirla (Put methodu olduğu için)
 
         String url = "https://dummy.restapiexample.com/api/v1/update/21";
 
@@ -59,7 +59,7 @@ public class C14_Put_SoftAssertIleExpectedDataTesti {
                         }
          */
 
-        JSONObject data = new JSONObject();
+        JSONObject data = new JSONObject();//içteki json objesi
 
         data.put("name","Ahmet");
         data.put("salary","1230");
@@ -78,10 +78,10 @@ public class C14_Put_SoftAssertIleExpectedDataTesti {
             }
          */
 
-        JSONObject reqBody = new JSONObject();
+        JSONObject reqBody = new JSONObject();//dıştaki json objesi
 
         reqBody.put("status","success");
-        reqBody.put("data",data);
+        reqBody.put("data",data);//"data" key'inin değeri yukarıda oluşturulan data objesidir
 
         // 2 - Expected data hazirla
 
@@ -104,16 +104,16 @@ public class C14_Put_SoftAssertIleExpectedDataTesti {
         JSONObject expData = new JSONObject();
 
         expData.put("status","success");
-        expData.put("data",reqBody);
+        expData.put("data",reqBody);//request body buraya koymamızın nedeni aynı adımları tekrar etmemek için
         expData.put("message","Successfully! Record has been updated.");
 
         // 3 - Response'i kaydet
 
         Response response = given()
-                .contentType(ContentType.JSON)
-                .when()
-                .body(reqBody.toString())
-                .put(url);
+                                  .contentType(ContentType.JSON)//body gönderdiğimiz için content type belirtmek
+                            .when()                            //zorundayız
+                                  .body(reqBody.toString())//request body yazmamızın sebebi update etmek
+                                  .put(url);              //istediğimiz body olduğu için (expected body yazmıyoruz)
 
         response.prettyPrint();
 
