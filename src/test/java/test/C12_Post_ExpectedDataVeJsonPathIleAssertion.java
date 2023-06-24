@@ -135,6 +135,7 @@ public class C12_Post_ExpectedDataVeJsonPathIleAssertion {
         //expected datada JsonObject'te methodlarla tek tek objelerin içerisine giriyoruz,
         //actual datada jsonPath'de ise değere ulaşma yolu noktalardır respJP.get("booking.firstname")
 
+        //Assert import edilir
         assertEquals(expData.getJSONObject("booking").get("firstname"), respJP.get("booking.firstname") );
         assertEquals(expData.getJSONObject("booking").get("lastname"), respJP.get("booking.lastname") );
         assertEquals(expData.getJSONObject("booking").get("totalprice"), respJP.get("booking.totalprice"));

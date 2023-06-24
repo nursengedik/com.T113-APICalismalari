@@ -64,6 +64,7 @@ public class C11_Get_ExpectedDataOlusturma {//JUnit ASSERT
         //methodlarla dönüştürmemiz gerekiyor, Json obje gibi direk değerlendiremiyoruz
         //response body'sinin içindeki verilere ulaşabilmek için öncelikle onun formatını sorgulanabilir,
         //uyarlanabilir hale getirmemiz gerekir
+        //JUnit'te assert işleminde parametre olarak önce expected data daha sonra actual data yazılır
 
         JsonPath respJP = response.jsonPath();//dönen response JsonPath'e dönüştürüp kaydeder
 

@@ -56,7 +56,7 @@ public class C08_JSONObjectVerileriCagirma {//request body testi (dönen respons
     @Test
     public void jsonObje01(){
 
-        //önce içteki objeler oluşturulur
+        //nested json objesi olduğu için önce içteki objeler oluşturulur
         //phoneNumbers body'sini hazırlamak için obje oluşturma
 
         /*
