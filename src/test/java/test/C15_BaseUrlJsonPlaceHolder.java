@@ -40,8 +40,12 @@ public class C15_BaseUrlJsonPlaceHolder extends JsonPlaceHolderBaseURL {
 
         // 1 - Url hazirla
 
-        specJsonPlace.pathParam("pp1","posts");
-        //specJsonPlace baseUrl'de oluşturulan url'nin base url kısmıdır
+        specJsonPlace.pathParam("pp1","posts");//bir tek parametre olduğu için pathParam() kullanılır
+        //specJsonPlace objesi üzerinden ataması yapılır, tanımlanır
+        //specJsonPlace baseUrl'de oluşturulan url'nin base url kısmıdır, url'nin devamındaki parametreleri
+        //yazmak için pathParam() methodu kullanılır
+        //sadece url'nin baseUrl'de oluşturulma nedeni 3 test methodu için ortak olan kısım olduğu için,
+        //parametreler her methodda değişken olduğu için baseUrl'de oluşturulup çağrılmaz
 
         // 2 - Expected Data hazirla
 
@@ -56,7 +60,7 @@ public class C15_BaseUrlJsonPlaceHolder extends JsonPlaceHolderBaseURL {
                 .then()
                 .assertThat()
                 .statusCode(200)
-                .body("title", hasSize(100));
+                .body("title", hasSize(100));//Matchers class'ı import edilir
 
     }
     @Test
@@ -85,7 +89,7 @@ public class C15_BaseUrlJsonPlaceHolder extends JsonPlaceHolderBaseURL {
                 .then()
                 .assertThat()
                 .statusCode(200)
-                .body("title", equalTo("optio dolor molestias sit") );
+                .body("title", equalTo("optio dolor molestias sit") );//Matchers classı import edilir
 
 
     }
@@ -105,8 +109,8 @@ public class C15_BaseUrlJsonPlaceHolder extends JsonPlaceHolderBaseURL {
 
         // 3 - Response'i kaydet
 
-        Response response = given().spec(specJsonPlace).when().delete("/{pp1}/{pp2}");
-
+        Response response = given().spec(specJsonPlace).when().delete("/{pp1}/{pp2}");//burada delete çağrılır
+                                                                                       //delete sorgusu old için
         response.prettyPrint();
 
         // Assertion

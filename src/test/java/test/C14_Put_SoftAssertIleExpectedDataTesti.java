@@ -46,7 +46,7 @@ public class C14_Put_SoftAssertIleExpectedDataTesti {
     @Test
     public void put01(){
 
-        // 1 - Url ve Request Body hazirla (Put methodu olduğu için)
+        // 1 - Url ve Request Body hazirla (Put sorgusu olduğu için)
 
         String url = "https://dummy.restapiexample.com/api/v1/update/21";
 
@@ -113,8 +113,8 @@ public class C14_Put_SoftAssertIleExpectedDataTesti {
                                   .contentType(ContentType.JSON)//body gönderdiğimiz için content type belirtmek
                             .when()                            //zorundayız
                                   .body(reqBody.toString())//request body yazmamızın sebebi update etmek
-                                  .put(url);              //istediğimiz body olduğu için (expected body yazmıyoruz)
-
+                                  .put(url);           //istediğimiz body olduğu için (expected body yazmıyoruz)
+                                  //put request olduğu için en son put çağrılır ve hazırlanan body içine konulur
         response.prettyPrint();
 
         // 4 - Assertion
