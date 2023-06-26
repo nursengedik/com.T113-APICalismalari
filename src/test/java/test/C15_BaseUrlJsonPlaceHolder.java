@@ -40,6 +40,9 @@ public class C15_BaseUrlJsonPlaceHolder extends JsonPlaceHolderBaseURL {
 
         // 1 - Url hazirla
 
+        //her test methodunda ortak olarak kullanılan url'in daha dinamik olması ve tekrar tekrar yazılmaması
+        //için baseUrl class'ında @Before methodu içinde oluşturularak direk çağrılarak kullanınılır
+
         specJsonPlace.pathParam("pp1","posts");//bir tek parametre olduğu için pathParam() kullanılır
         //specJsonPlace objesi üzerinden ataması yapılır, tanımlanır
         //specJsonPlace baseUrl'de oluşturulan url'nin base url kısmıdır, url'nin devamındaki parametreleri

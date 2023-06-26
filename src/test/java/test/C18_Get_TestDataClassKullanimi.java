@@ -43,10 +43,10 @@ public class C18_Get_TestDataClassKullanimi extends JsonPlaceHolderBaseURL {
         TestDataJsonPlace testDataJsonPlace = new TestDataJsonPlace();
 
         JSONObject expData = testDataJsonPlace.expectedBodyOlusturJSON();
-        //testDataJsonPlace class'ından method call (method çağırma) yapılarak expectedBodyOlusturJSON()
-        //methodu çağrılır, çağrılan method bize sonuç döndüreceği için direk kullanılamaz, çağrılan
-        //methodun return type'ı (data türü) JSONObject olduğu için JSONObject objesi oluşturularak
-        //atama yapılır
+        //testDataJsonPlace class'ından expectedBodyOlusturJSON() methodu method call (method çağırma) yapılarak
+        //method çağrılır, çağrılan method bize sonuç döndüreceği için direk kullanılamaz, çağrılan methodun
+        //return type'ı (data türü) JSONObject'tir, call edilen methoddaki objeyi kullanabilmek için JSONObject
+        //datasına sahip obje oluşturularak atama yapılır
 
         // 3 - Response'i kaydet
 
