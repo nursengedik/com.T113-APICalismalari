@@ -85,15 +85,5 @@ public class C19_Put_TestDataClassKullanimi extends JsonPlaceHolderBaseURL {
 
 
 
-    @Test
-    public  void pt001(){
-
-        specJsonPlace.pathParams("pp1", "posts", "pp2", 70);
-        TestDataJsonPlace testDataJsonPlace=new TestDataJsonPlace();
-        JSONObject reqBody =testDataJsonPlace.requestBodyOlusturJSON();
-
-
-
-    }
 
 }
