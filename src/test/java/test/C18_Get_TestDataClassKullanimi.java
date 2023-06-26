@@ -58,6 +58,12 @@ public class C18_Get_TestDataClassKullanimi extends JsonPlaceHolderBaseURL {
 
         JsonPath respJP = response.jsonPath();
 
+        //response'ın temel bilgileri status code, content type, header değeri gibi bilgileri TestData class'ında
+        //level class'ta instance variable olarak tanımlayacağız ve onlar üzerinden çağıracağız
+        //response üzerinden status koduna direk ulaşmak için getStatusCode() methodu kullanılır, response
+        //üzerinden then().assertThat() ile bir assert işlemi yapmak istiyorsak statusCode() methodunu kullanırız
+
+
         assertEquals(testDataJsonPlace.basariliStatusCode, response.getStatusCode());
 
         assertEquals(expData.get("userId"), respJP.get("userId"));
