@@ -26,15 +26,14 @@ public class TestDataJsonPlace {
     }
 
     public JSONObject requestBodyOlusturJSON(){
-
-          /*
+      /*
         {
         "title":"Ali",
         "body":"Merhaba",
         "userId":10,
         "id":70
         }
-         */
+     */
 
         JSONObject reqBody = new JSONObject();
 

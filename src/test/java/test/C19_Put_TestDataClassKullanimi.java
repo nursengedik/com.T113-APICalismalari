@@ -13,12 +13,13 @@ import static io.restassured.RestAssured.given;
 import static org.junit.Assert.assertEquals;
 
 public class C19_Put_TestDataClassKullanimi extends JsonPlaceHolderBaseURL {
-     /*
+
+    /*
     https://jsonplaceholder.typicode.com/posts/70 url'ine asagidaki body’e sahip bir PUT
     request yolladigimizda donen response’in
     status kodunun 200, content type’inin “application/json; charset=utf-8”,
     Connection header degerinin “keep-alive”
-    ve response body’sinin asagida verilen ile ayni oldugunu test ediniz
+    ve response body’sinin asagida verilen ile ayni oldugunu (expected body) test ediniz
 
     Request Body
 
@@ -42,7 +43,7 @@ public class C19_Put_TestDataClassKullanimi extends JsonPlaceHolderBaseURL {
     @Test
     public void put01(){
 
-        // 1 - Url ve Request Body hazirla
+        // 1 - Url ve Request Body hazirla (PUT request olduğu için)
 
         specJsonPlace.pathParams("pp1","posts","pp2",70);
 
@@ -52,16 +53,18 @@ public class C19_Put_TestDataClassKullanimi extends JsonPlaceHolderBaseURL {
 
         // 2 - Expected Data hazirla
 
+        //expected datamız request body ile aynı olduğu için tekrarda body oluşturmayız, TestDataJsonPlace
+        //class'ından aynı method çağrılır ve adını expData olarak değiştiririz
         JSONObject expData = testDataJsonPlace.requestBodyOlusturJSON();
 
         // 3 - Response'i kaydet
 
         Response response = given()
-                .spec(specJsonPlace)
-                .contentType(ContentType.JSON)
-                .when()
-                .body(reqBody.toString())
-                .put("/{pp1}/{pp2}");
+                                 .spec(specJsonPlace)
+                                 .contentType(ContentType.JSON)
+                            .when()
+                                 .body(reqBody.toString())
+                                 .put("/{pp1}/{pp2}");
 
         response.prettyPrint();
 
@@ -77,6 +80,19 @@ public class C19_Put_TestDataClassKullanimi extends JsonPlaceHolderBaseURL {
         assertEquals(expData.get("id"), respJP.get("id"));
         assertEquals(expData.get("title"), respJP.get("title"));
         assertEquals(expData.get("body"), respJP.get("body"));
+
+    }
+
+
+
+    @Test
+    public  void pt001(){
+
+        specJsonPlace.pathParams("pp1", "posts", "pp2", 70);
+        TestDataJsonPlace testDataJsonPlace=new TestDataJsonPlace();
+        JSONObject reqBody =testDataJsonPlace.requestBodyOlusturJSON();
+
+
 
     }
 
