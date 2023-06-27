@@ -84,6 +84,4 @@ public class C19_Put_TestDataClassKullanimi extends JsonPlaceHolderBaseURL {
     }
 
 
-
-
 }
