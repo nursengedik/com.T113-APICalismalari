@@ -75,6 +75,8 @@ public class C21_Post_TestDataKullanimi extends HerokuAppBaseURL {
         response.prettyPrint();
 
         // 4 - Assertion
+        //response'nin kendi methodlarıyla (then().assertThat()) test yapılacaksa response'ı JsonPath'e çevirmeye
+        //gerek yok ama assert veya softassert il test yapacaksak response'ı JsonPath'e çevirmeliyiz
 
         JsonPath respJP = response.jsonPath();
 

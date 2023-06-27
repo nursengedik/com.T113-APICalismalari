@@ -114,6 +114,8 @@ public class C09_Post_JsonPathIleBodyTesti {//dönen response body testi
 
         // 4 - Assertion
        //dönen response body içerisindeki iç içe olan değerleri test ediyoruz (C7 class'ından farklı)
+        //burada response'ın kendi methodları üzerinden test yapıldığı için dönen response JsonPath'e
+        //çevirmeye (C19) gerek yok
         response
                 .then()
                 .assertThat()
