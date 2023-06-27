@@ -55,9 +55,9 @@ public class C21_Post_TestDataKullanimi extends HerokuAppBaseURL {
 
         specHerokuApp.pathParam("pp1","booking");
 
-        TestDataHerokuapp testDataHerokuapp = new TestDataHerokuapp();
+        TestDataHerokuapp testDataHerokuapp = new TestDataHerokuapp();//obje oluşturduktan sonra
 
-        JSONObject reqBody = testDataHerokuapp.bookingOlusturJSON();
+        JSONObject reqBody = testDataHerokuapp.bookingOlusturJSON();//request body'mizi kaydettik
 
         // 2 - Expected Data hazirla
 
@@ -66,11 +66,11 @@ public class C21_Post_TestDataKullanimi extends HerokuAppBaseURL {
         // 3 - Response'i kaydet
 
         Response response = given()
-                .spec(specHerokuApp)
-                .contentType(ContentType.JSON)
-                .when()
-                .body(reqBody.toString())
-                .post("/{pp1}");
+                                  .spec(specHerokuApp)
+                                  .contentType(ContentType.JSON)
+                            .when()
+                                  .body(reqBody.toString())
+                                  .post("/{pp1}");
 
         response.prettyPrint();
 

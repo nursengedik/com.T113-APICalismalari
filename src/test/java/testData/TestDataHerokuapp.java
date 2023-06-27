@@ -8,7 +8,7 @@ public class TestDataHerokuapp {
 
     public int basariliStatusCode = 200;
 
-    /*
+    /* Request body
         {
 	      "firstname" : "Ali",
 	      "lastname" : “Bak",
@@ -56,7 +56,7 @@ public class TestDataHerokuapp {
         return booking;
     }
 
-    /*
+    /* Expected Body
     {
     "bookingid":24,
     "booking":{

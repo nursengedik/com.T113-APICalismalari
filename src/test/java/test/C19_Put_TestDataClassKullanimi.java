@@ -60,11 +60,11 @@ public class C19_Put_TestDataClassKullanimi extends JsonPlaceHolderBaseURL {
         // 3 - Response'i kaydet
 
         Response response = given()
-                                 .spec(specJsonPlace)
+                                 .spec(specJsonPlace)//spec'in içine base url yazılır
                                  .contentType(ContentType.JSON)
                             .when()
-                                 .body(reqBody.toString())
-                                 .put("/{pp1}/{pp2}");
+                                 .body(reqBody.toString())//body'nin içine göndereceğimiz body'i (request body)
+                                 .put("/{pp1}/{pp2}"); //put methodunun içine ise parametreleri yazıyoruz
 
         response.prettyPrint();
 
