@@ -45,7 +45,7 @@ public class TestDataJsonPlace {
         return reqBody;
     }
 
-    public HashMap requestBodyOlusturMap(){
+    public HashMap requestBodyOlusturMap(){//request body map formatı
 
           /*
           {

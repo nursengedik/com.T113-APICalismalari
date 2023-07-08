@@ -94,4 +94,7 @@ public class C21_Post_TestDataKullanimi extends HerokuAppBaseURL {
 
     }
 
-}
+}//dönen response'ın body'sini kullanabilmek için JsonPath'e çeviriyorduk, Json formatını Map formatına
+// dönüştürerek Map objesine kaydediyoruz, bu işleme De-Serialization denir
+//dönüştürme işlemini response üzerinden as() methodu ile yapabiliyoruz, bu sayede response'ımızı map'e çevirmiş
+//oluruz, neden yapıyoruz? bazı firmalar java objelerini kullanmak istiyor

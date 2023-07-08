@@ -38,6 +38,7 @@ public class C18_Get_TestDataClassKullanimi extends JsonPlaceHolderBaseURL {
         // 2 - Expected Data hazirla
         //response body'sinin verilen ile aynı olduğunu test edin denilince expected data hazırlanır
 
+        //TestData class'ını extends etmememizin nedeni class'ımızı BaseUrl'e extends ettiğimiz için
         //TestDataJsonPlace class'ındaki herhangi bir method veya objeye ulaşabilmek için test methodumuzda
         //o class'tan obje oluşturulur ve obje üzerinden de verilere ulaşılır
         TestDataJsonPlace testDataJsonPlace = new TestDataJsonPlace();
