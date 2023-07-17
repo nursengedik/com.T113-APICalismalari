@@ -62,8 +62,8 @@ public class C22_Put_DeSerialization extends JsonPlaceHolderBaseURL {//basit kat
                                   .contentType(ContentType.JSON)
                             .when()
                                   .body(reqBody)//map'imiz java olduğu için reqBody'i toString() ile javaya
-                                               //çevirmiyoruz
-                                  .put("/{pp1}/{pp2}");
+                                               //çevirmiyoruz (toString() array'in içindekileri görmek için de)
+                                  .put("/{pp1}/{pp2}");                            //kullanılır
 
         response.prettyPrint();
 
@@ -81,6 +81,7 @@ public class C22_Put_DeSerialization extends JsonPlaceHolderBaseURL {//basit kat
         assertEquals( expData.get("body") , respMap.get("body") );//ile alıyoruz
         assertEquals( expData.get("userId") , respMap.get("userId") );
         assertEquals( expData.get("id") , respMap.get("id") );
+        //body'miz tek katmanlı ise Map üzerinden get() methodu ile datalarımıza ulaşabiliriz
 
     }
 
