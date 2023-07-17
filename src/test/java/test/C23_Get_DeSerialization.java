@@ -43,9 +43,11 @@ public class C23_Get_DeSerialization extends DummyBaseURL {//katmanlı body test
 
         // 2 - Expected Data hazirla
 
+        //expected data'mızı class'ta değil testData'da hazırlıyoruz
         TestDataDummy testDataDummy = new TestDataDummy();
 
-        HashMap<String, Object> expData = testDataDummy.expectedBodyOlusturMap();
+        HashMap<String, Object> expData = testDataDummy.expectedBodyOlusturMap();//obje üzerinden çağırdığımız
+                                                                                //methodu kaydediyoruz
 
         // 3 - Response'i kaydet
 
@@ -56,7 +58,8 @@ public class C23_Get_DeSerialization extends DummyBaseURL {//katmanlı body test
 
         // 4 - Assertion
 
-        HashMap<String,Object> respMap = response.as(HashMap.class);
+        HashMap<String,Object> respMap = response.as(HashMap.class);//dönen response'ı da HashMap olarak
+                                                                   //kaydetmemiz gerekiyor
 
         assertEquals(testDataDummy.basariliStatusCode, response.getStatusCode());
         assertEquals(testDataDummy.contentType, response.getContentType());
@@ -65,19 +68,24 @@ public class C23_Get_DeSerialization extends DummyBaseURL {//katmanlı body test
         assertEquals(expData.get("message") , respMap.get("message"));
 
         assertEquals(  ((Map) (expData.get("data"))).get("id") ,
-                ((Map) (respMap.get("data"))).get("id") );
+                       ((Map) (respMap.get("data"))).get("id") );
+
+        //java casting işlemi olmadan map içindeki map'i getirmiyor (iç içe katmanlı body'lerde)
+        //çünkü ilk get() methodunun (expData.get("data")) bize map döndüreceğini biz biliyoruz ama java
+        //bilmiyor, cast işlemi ile bildiririz  (   (Map) (expData.get("data")))   ),
+        //ikinci get() methodu da (.get("id"))içteki datalrı getirir
 
         assertEquals(  ((Map) (expData.get("data"))).get("employee_name") ,
-                ((Map) (respMap.get("data"))).get("employee_name") );
+                       ((Map) (respMap.get("data"))).get("employee_name") );
 
         assertEquals( ((Map) (expData.get("data"))).get("employee_salary") ,
-                ((Map) (respMap.get("data"))).get("employee_salary")     );
+                      ((Map) (respMap.get("data"))).get("employee_salary")     );
 
         assertEquals( ((Map) (expData.get("data"))).get("employee_age") ,
-                ((Map) (respMap.get("data"))).get("employee_age")     );
+                      ((Map) (respMap.get("data"))).get("employee_age")     );
 
         assertEquals( ((Map) (expData.get("data"))).get("profile_image") ,
-                ((Map) (respMap.get("data"))).get("profile_image")     );
+                      ((Map) (respMap.get("data"))).get("profile_image")     );
 
     }
 

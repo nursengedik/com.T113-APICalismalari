@@ -7,7 +7,7 @@ import java.util.HashMap;
 public class TestDataDummy {
 
     //response'ın temel bilgilerini TestData'da class levelde instance variable olarak hazırlıyoruz
-    //herhangi bir class üzerinden obje ile veriable'lara ulaşabilmek için access modifier'ını
+    //herhangi bir class üzerinden obje üzerinden veriable'lara ulaşabilmek için access modifier'ını
     //public yapmak zorundayız
 
     public int basariliStatusCode = 200;
