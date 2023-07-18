@@ -50,6 +50,7 @@ public class C25_Put_PojoClass extends JsonPlaceHolderBaseURL {
         //bunun için java'nın altında pojo package oluşturulur ve altında bütün formatlarımız ve
         //bütün json objeleri method olarak değil class olarak oluşturulur
         //Pojo: basit bir java objesidir, kodların dinamik olması için oluşturulan bir kalıptır
+        //pojo oluşturuken de önce en iç katmandan başlanır ve değerleri verilirken de en içten başlanır
 
        //request body hazırlama
         JsonPlaceRequestBodyPOJO reqBody = new JsonPlaceRequestBodyPOJO("Ahmet","Merhaba",10,70);

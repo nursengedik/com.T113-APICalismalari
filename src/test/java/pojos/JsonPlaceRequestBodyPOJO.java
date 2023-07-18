@@ -17,6 +17,7 @@ public class JsonPlaceRequestBodyPOJO {
     //     variable olarak hazirlanır
     //     variable'ların değişmesini (değerleri değişebilir ama title'nin kendisi değişmez) istemiyorsak
     //     ve kullanacaksak private yapılır
+
     private String title;//isimleri birebir aynı olmalı
     private String body;
     private int userId;

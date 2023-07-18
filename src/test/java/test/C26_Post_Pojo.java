@@ -51,42 +51,48 @@ public class C26_Post_Pojo extends HerokuAppBaseURL {
 
 
     @Test
-    public void post01(){
+    public void post01() {
 
-        specHerokuApp.pathParam("pp1","booking");
+        specHerokuApp.pathParam("pp1", "booking");
 
-        BookingdatesPOJO bookingdates = new BookingdatesPOJO("2021-06-01","2021-06-10");
+        //pojo class'ında private olarak key değerleriyle hazırlanan veriable'lara değerler yazılırken yine
+        //en içten başlanır
+        BookingdatesPOJO bookingdates = new BookingdatesPOJO("2021-06-01", "2021-06-10");
 
         //request body
-        BookingPOJO reqBody = new BookingPOJO("Ali","Bak",500,false,bookingdates,"wi-fi");
+        BookingPOJO reqBody = new BookingPOJO("Ali", "Bak", 500, false, bookingdates, "wi-fi");
 
         //expected data
-        HerokuappExpBodyPOJO expData = new HerokuappExpBodyPOJO(24,reqBody);
+        HerokuappExpBodyPOJO expData = new HerokuappExpBodyPOJO(24, reqBody);
 
         //response kaydetme
         Response response = given()
-                                  .spec(specHerokuApp)
-                                  .contentType(ContentType.JSON)
-                            .when()
-                                  .body(reqBody)
-                                  .post("/{pp1}");
+                .spec(specHerokuApp)
+                .contentType(ContentType.JSON)
+                .when()
+                .body(reqBody)
+                .post("/{pp1}");
 
         response.prettyPrint();//response'ı yazdırma
 
         //Assertion
         HerokuappExpBodyPOJO respPojo = response.as(HerokuappExpBodyPOJO.class);
-        //expected data'yı pojo olarak hazırladığımız için dönen response'ı da pojo objesi olarak kaydetmeliyiz
+        //expected data'yı pojo olarak hazırladığımız için dönen response'ı da pojo objesi olarak kaydetmeliyiz,
         //pojo kalıbına dökmeliyiz
 
-        assertEquals(expData.getBooking().getFirstname(), respPojo.getBooking().getFirstname() );
-        assertEquals(expData.getBooking().getLastname() , respPojo.getBooking().getLastname());
+        assertEquals(expData.getBooking().getFirstname(), respPojo.getBooking().getFirstname());
+        assertEquals(expData.getBooking().getLastname(), respPojo.getBooking().getLastname());
         assertEquals(expData.getBooking().getTotalprice(), respPojo.getBooking().getTotalprice());
-        assertEquals(expData.getBooking().isDepositpaid() , respPojo.getBooking().isDepositpaid());
+        assertEquals(expData.getBooking().isDepositpaid(), respPojo.getBooking().isDepositpaid());
         assertEquals(expData.getBooking().getBookingdates().getCheckin(),
-                     respPojo.getBooking().getBookingdates().getCheckin());
+                respPojo.getBooking().getBookingdates().getCheckin());
         assertEquals(expData.getBooking().getBookingdates().getCheckout(),
-                     respPojo.getBooking().getBookingdates().getCheckout());
+                respPojo.getBooking().getBookingdates().getCheckout());
         assertEquals(expData.getBooking().getAdditionalneeds(), respPojo.getBooking().getAdditionalneeds());
+
+        //not: boolean data type varsa get() ile değil is() ile gelmekte, isDepositpaid()
+
 
     }
 }
+

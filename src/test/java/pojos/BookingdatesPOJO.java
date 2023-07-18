@@ -11,6 +11,7 @@ public class BookingdatesPOJO {//iç body'nin pojo sunu oluşturma
 
     //pojo'ların otomatik olması için pom.xml'e org.projectlombok eklenir
     //yukarıdaki 3 notasyonu kullanarak pojo'yu kısa yoldan oluşturmuş olacağız
+    //JsonPlaceRequestBodyPOJO class'ında olduğu gibi uzun uzun hazırlamaya gerek yok
 
     /*
      {
