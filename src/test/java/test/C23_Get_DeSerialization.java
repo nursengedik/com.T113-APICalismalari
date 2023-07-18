@@ -75,17 +75,17 @@ public class C23_Get_DeSerialization extends DummyBaseURL {//katmanlı body test
         //bilmiyor, cast işlemi ile bildiririz  (   (Map) (expData.get("data")))   ),
         //ikinci get() methodu da (.get("id"))içteki datalrı getirir
 
-        assertEquals(  ((Map) (expData.get("data"))).get("employee_name") ,
-                       ((Map) (respMap.get("data"))).get("employee_name") );
+        assertEquals(  ((Map) (expData.get("data"))).get("employee_name"),
+                       ((Map) (respMap.get("data"))).get("employee_name"));
 
-        assertEquals( ((Map) (expData.get("data"))).get("employee_salary") ,
-                      ((Map) (respMap.get("data"))).get("employee_salary")     );
+        assertEquals(  ((Map) (expData.get("data"))).get("employee_salary"),
+                       ((Map) (respMap.get("data"))).get("employee_salary"));
 
-        assertEquals( ((Map) (expData.get("data"))).get("employee_age") ,
-                      ((Map) (respMap.get("data"))).get("employee_age")     );
+        assertEquals(  ((Map) (expData.get("data"))).get("employee_age"),
+                       ((Map) (respMap.get("data"))).get("employee_age"));
 
-        assertEquals( ((Map) (expData.get("data"))).get("profile_image") ,
-                      ((Map) (respMap.get("data"))).get("profile_image")     );
+        assertEquals(  ((Map) (expData.get("data"))).get("profile_image"),
+                       ((Map) (respMap.get("data"))).get("profile_image"));
 
     }
 
