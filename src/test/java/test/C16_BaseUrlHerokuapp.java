@@ -82,12 +82,12 @@ public class C16_BaseUrlHerokuapp extends HerokuAppBaseURL {
         // 2 - Expected Data hazirla
         // 3 - Response'u kaydet
 
-        Response response = given().
-                spec(specHerokuApp).
-                contentType(ContentType.JSON).
-                when().
-                body(reqBody.toString()).
-                post("/{pp1}");
+        Response response = given()
+                                  .spec(specHerokuApp)
+                                  .contentType(ContentType.JSON)
+                            .when()
+                                  .body(reqBody.toString())
+                                  .post("/{pp1}");
         response.prettyPrint();
 
         // 4 - Assertion
